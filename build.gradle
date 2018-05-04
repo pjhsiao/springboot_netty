@@ -1,0 +1,41 @@
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+mainClassName = 'com.springboot.netty.NettyWebSocketServerApplication'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.1.RELEASE'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-autoconfigure:2.0.1.RELEASE'
+    compile 'io.netty:netty-all:4.1.21.Final'
+    compile 'org.apache.logging.log4j:log4j-api:2.10.0'
+    compile 'org.apache.logging.log4j:log4j-core:2.10.0'
+    compile 'commons-logging:commons-logging:1.2'
+    testImplementation 'junit:junit:4.12'
+}
+
+task helloworld{
+	ext.name = 'jeff'
+	doLast{
+	 	println 'hello-world!'+ext.name
+	}
+}
